@@ -78,6 +78,14 @@ Key insights from the data:
 
 <img width="440" height="221" alt="image" src="https://github.com/user-attachments/assets/ab7ed0af-abc1-4537-bca8-aad08ad7b99f" />
 
+rules for the model above:
+
+If customer_service_calls ≥ 4 → predict churn.
+
+Else if international_plan = 1 and total_day_minutes ≥ 200 → predict churn.
+
+Else if voice_mail_plan = 0 and number_vmail_messages = 0 → higher churn risk.
+
 ---
 
 ## Modeling Approach

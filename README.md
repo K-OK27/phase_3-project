@@ -76,15 +76,12 @@ Key insights from the data:
 - *Daytime minutes:*  
   Churners have a second peak above 200 minutes – possibly feeling overcharged.
 
-<img width="440" height="221" alt="image" src="https://github.com/user-attachments/assets/ab7ed0af-abc1-4537-bca8-aad08ad7b99f" />
+<img width="425" height="165" alt="customer service calls vs churn" src="https://github.com/user-attachments/assets/06fe4532-1813-4b62-b459-37ca62c8aefd" />
 
-rules for the model above:
+<img width="422" height="260" alt="plan vs churn" src="https://github.com/user-attachments/assets/2b19ca57-c7e6-4e29-bedd-16ac9635624c" />
 
-If customer_service_calls ≥ 4 → predict churn.
 
-Else if international_plan = 1 and total_day_minutes ≥ 200 → predict churn.
 
-Else if voice_mail_plan = 0 and number_vmail_messages = 0 → higher churn risk.
 
 ---
 
@@ -136,7 +133,11 @@ Else if voice_mail_plan = 0 and number_vmail_messages = 0 → higher churn risk.
 <img width="448" height="185" alt="confusion matrix" src="https://github.com/user-attachments/assets/acec8c2c-0fea-457e-919c-102fc60fc5f0" />
 
 
+interpretation: Logistic Regression has lower precision for churn (0.30) but good recall (0.72), making it better for identifying most at-risk customers.
 
+Decision Tree has better overall accuracy (88%) and higher precision for churn (0.57), but slightly lower recall (0.59).
+
+Recommendation: Use Logistic Regression for churn probability scoring; use Decision Tree for rule-based alerts ( if service calls ≥ 4 → flag for retention).
 
 *Verdict:* Logistic Regression is *better* for production because:
 - Higher recall (catches more actual churners)
@@ -144,6 +145,7 @@ Else if voice_mail_plan = 0 and number_vmail_messages = 0 → higher churn risk.
 - Stable probabilities (well‑calibrated)
 
 *Decision Tree’s role:* Extract human‑readable rules (e.g., “if customer_service_calls > 3 → high risk”).
+
 
 ---
 
